@@ -8,7 +8,7 @@ import kotlinx.parcelize.Parcelize
 @androidx.room.Entity(tableName = "picture")
 data class PictureEntityDB(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     val large: String,
     val medium: String,
     val thumbnail: String
