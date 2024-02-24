@@ -2,7 +2,7 @@ package com.org.test.randomusersapp.constants
 
 object GlobalConstants {
     //Rest
-    const val BASE_URL = "https://randomuser.me/api/"
+    const val BASE_URL = "https://randomuser.me/"
 
     //DB
     const val DB_NAME = "products_db"
