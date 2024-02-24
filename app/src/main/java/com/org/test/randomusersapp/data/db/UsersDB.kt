@@ -53,7 +53,7 @@ import com.org.test.randomusersapp.data.db.entities.TimezoneEntityDB
 
 @TypeConverters(Converters::class)
 
-abstract class RandomUsersDB : RoomDatabase() {
+abstract class UsersDB : RoomDatabase() {
     abstract fun coordinatesDao(): CoordinatesDao
     abstract fun dobDao(): DobDao
     abstract fun idDao(): IdDao
@@ -72,16 +72,16 @@ abstract class RandomUsersDB : RoomDatabase() {
         * This helps to make sure that the value of INSTANCE is always up-to-date and the same for all execution threads.
         * It means that changes made by one thread to INSTANCE are visible to all other threads immediately*/
         @Volatile
-        private var INSTANCE: RandomUsersDB? = null
+        private var INSTANCE: UsersDB? = null
 
-        fun getInstance(context: Context): RandomUsersDB {
+        fun getInstance(context: Context): UsersDB {
             synchronized(this) {
                 var instance = INSTANCE
 
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        RandomUsersDB::class.java,
+                        UsersDB::class.java,
                         GlobalConstants.DB_NAME
                     ).fallbackToDestructiveMigration()
                         .build()
