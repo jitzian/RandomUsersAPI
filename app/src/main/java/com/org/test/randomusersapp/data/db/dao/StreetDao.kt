@@ -16,10 +16,10 @@ interface StreetDao {
     suspend fun addStreet(street: StreetEntityDB)
 
     @Query("SELECT * FROM street WHERE id = :id")
-    suspend fun findStreetById(id: Int): Flow<StreetEntityDB>
+    fun findStreetById(id: Int): Flow<StreetEntityDB>
 
     @Query("SELECT * FROM street")
-    suspend fun getAllStreet(): Flow<List<StreetEntityDB>>
+    fun getAllStreet(): Flow<List<StreetEntityDB>>
 
     @Update
     suspend fun updateStreet(street: StreetEntityDB)

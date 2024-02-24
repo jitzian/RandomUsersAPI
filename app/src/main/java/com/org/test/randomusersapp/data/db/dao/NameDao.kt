@@ -16,10 +16,10 @@ interface NameDao {
     suspend fun addName(name: NameEntityDB)
 
     @Query("SELECT * FROM name WHERE id = :id")
-    suspend fun findNameById(id: Int): Flow<NameEntityDB>
+    fun findNameById(id: Int): Flow<NameEntityDB>
 
     @Query("SELECT * FROM name")
-    suspend fun getAllName(): Flow<List<NameEntityDB>>
+    fun getAllName(): Flow<List<NameEntityDB>>
 
     @Update
     suspend fun updateName(name: NameEntityDB)

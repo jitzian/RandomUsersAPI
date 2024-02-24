@@ -15,10 +15,10 @@ interface DobDao {
     suspend fun addDob(dob: DobEntityDB)
 
     @Query("SELECT * FROM dob WHERE id = :id")
-    suspend fun findDobById(id: Int): Flow<DobEntityDB>
+    fun findDobById(id: Int): Flow<DobEntityDB>
 
     @Query("SELECT * FROM dob")
-    suspend fun getAllDob(): Flow<List<DobEntityDB>>
+    fun getAllDob(): Flow<List<DobEntityDB>>
 
     @Update
     suspend fun updateDob(dob: DobEntityDB)

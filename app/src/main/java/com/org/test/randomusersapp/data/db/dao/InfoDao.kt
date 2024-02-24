@@ -16,10 +16,10 @@ interface InfoDao {
     suspend fun addInfo(info: InfoEntityDB)
 
     @Query("SELECT * FROM info WHERE id = :id")
-    suspend fun findInfoById(id: Int): Flow<InfoEntityDB>
+    fun findInfoById(id: Int): Flow<InfoEntityDB>
 
     @Query("SELECT * FROM info")
-    suspend fun getAllInfo(): Flow<List<InfoEntityDB>>
+    fun getAllInfo(): Flow<List<InfoEntityDB>>
 
     @Update
     suspend fun updateInfo(info: InfoEntityDB)

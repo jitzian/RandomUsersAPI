@@ -16,10 +16,10 @@ interface TimezoneDao {
     suspend fun addTimezone(timezone: TimezoneEntityDB)
 
     @Query("SELECT * FROM timezone WHERE id = :id")
-    suspend fun findTimezoneById(id: Int): Flow<TimezoneEntityDB>
+    fun findTimezoneById(id: Int): Flow<TimezoneEntityDB>
 
     @Query("SELECT * FROM timezone")
-    suspend fun getAllTimezone(): Flow<List<TimezoneEntityDB>>
+    fun getAllTimezone(): Flow<List<TimezoneEntityDB>>
 
     @Update
     suspend fun updateTimezone(timezone: TimezoneEntityDB)

@@ -16,10 +16,10 @@ interface ResultDao {
     suspend fun addResult(result: ResultEntityDB)
 
     @Query("SELECT * FROM result WHERE id = :id")
-    suspend fun findResultById(id: Int): Flow<ResultEntityDB>
+    fun findResultById(id: Int): Flow<ResultEntityDB>
 
     @Query("SELECT * FROM result")
-    suspend fun getAllResult(): Flow<List<ResultEntityDB>>
+    fun getAllResult(): Flow<List<ResultEntityDB>>
 
     @Update
     suspend fun updateResult(result: ResultEntityDB)

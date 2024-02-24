@@ -16,10 +16,10 @@ interface IdDao {
     suspend fun addId(id: IdEntityDB)
 
     @Query("SELECT * FROM id WHERE id = :id")
-    suspend fun findIdById(id: Int): Flow<IdEntityDB>
+    fun findIdById(id: Int): Flow<IdEntityDB>
 
     @Query("SELECT * FROM id")
-    suspend fun getAllId(): Flow<List<IdEntityDB>>
+    fun getAllId(): Flow<List<IdEntityDB>>
 
     @Update
     suspend fun updateId(id: IdEntityDB)

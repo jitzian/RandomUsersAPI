@@ -16,10 +16,10 @@ interface RegisteredDao {
     suspend fun addRegistered(registered: RegisteredEntityDB)
 
     @Query("SELECT * FROM registered WHERE id = :id")
-    suspend fun findRegisteredById(id: Int): Flow<RegisteredEntityDB>
+    fun findRegisteredById(id: Int): Flow<RegisteredEntityDB>
 
     @Query("SELECT * FROM registered")
-    suspend fun getAllRegistered(): Flow<List<RegisteredEntityDB>>
+    fun getAllRegistered(): Flow<List<RegisteredEntityDB>>
 
     @Update
     suspend fun updateRegistered(registered: RegisteredEntityDB)

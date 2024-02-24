@@ -16,10 +16,10 @@ interface LocationDao {
     suspend fun addLocation(location: LocationEntityDB)
 
     @Query("SELECT * FROM location WHERE id = :id")
-    suspend fun findLocationById(id: Int): Flow<LocationEntityDB>
+    fun findLocationById(id: Int): Flow<LocationEntityDB>
 
     @Query("SELECT * FROM location")
-    suspend fun getAllLocation(): Flow<List<LocationEntityDB>>
+    fun getAllLocation(): Flow<List<LocationEntityDB>>
 
     @Update
     suspend fun updateLocation(location: LocationEntityDB)

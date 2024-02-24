@@ -16,10 +16,10 @@ interface LoginDao {
     suspend fun addLogin(login: LoginEntityDB)
 
     @Query("SELECT * FROM login WHERE id = :id")
-    suspend fun findLoginById(id: Int): Flow<LoginEntityDB>
+    fun findLoginById(id: Int): Flow<LoginEntityDB>
 
     @Query("SELECT * FROM login")
-    suspend fun getAllLogin(): Flow<List<LoginEntityDB>>
+    fun getAllLogin(): Flow<List<LoginEntityDB>>
 
     @Update
     suspend fun updateLogin(login: LoginEntityDB)

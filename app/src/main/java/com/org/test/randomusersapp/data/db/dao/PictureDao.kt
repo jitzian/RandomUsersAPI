@@ -16,10 +16,10 @@ interface PictureDao {
     suspend fun addPicture(picture: PictureEntityDB)
 
     @Query("SELECT * FROM picture WHERE id = :id")
-    suspend fun findPictureById(id: Int): Flow<PictureEntityDB>
+    fun findPictureById(id: Int): Flow<PictureEntityDB>
 
     @Query("SELECT * FROM picture")
-    suspend fun getAllPicture(): Flow<List<PictureEntityDB>>
+    fun getAllPicture(): Flow<List<PictureEntityDB>>
 
     @Update
     suspend fun updatePicture(picture: PictureEntityDB)
