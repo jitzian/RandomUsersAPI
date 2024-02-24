@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.org.test.randomusersapp.constants.GlobalConstants
+import com.org.test.randomusersapp.data.db.converters.Converters
 import com.org.test.randomusersapp.data.db.dao.CoordinatesDao
 import com.org.test.randomusersapp.data.db.dao.DobDao
 import com.org.test.randomusersapp.data.db.dao.IdDao
@@ -48,6 +50,8 @@ import com.org.test.randomusersapp.data.db.entities.TimezoneEntityDB
     version = GlobalConstants.DB_VERSION,
     exportSchema = false
 )
+
+@TypeConverters(Converters::class)
 
 abstract class RandomUsersDB : RoomDatabase() {
     abstract fun coordinatesDao(): CoordinatesDao
