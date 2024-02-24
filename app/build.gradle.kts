@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -66,4 +68,40 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+dependencies {
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-compiler:2.50")
+
+    // For instrumentation tests
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.50")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.50")
+
+    // For local unit tests
+    testImplementation("com.google.dagger:hilt-android-testing:2.50")
+    kaptTest("com.google.dagger:hilt-compiler:2.50")
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+//Rest
+dependencies {
+    //okhttp
+    //implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+}
+
+//Images Compose
+dependencies {
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
