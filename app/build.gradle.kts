@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -104,4 +105,13 @@ dependencies {
 //Images Compose
 dependencies {
     implementation("io.coil-kt:coil-compose:2.4.0")
+}
+
+//Room Db
+dependencies {
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt( "androidx.room:room-compiler:2.6.1")
+
+// optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.6.1")
 }
