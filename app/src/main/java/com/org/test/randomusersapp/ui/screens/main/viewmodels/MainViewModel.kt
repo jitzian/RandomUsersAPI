@@ -2,7 +2,7 @@ package com.org.test.randomusersapp.ui.screens.main.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.org.test.randomusersapp.ui.screens.main.MainStateUI
+import com.org.test.randomusersapp.ui.screens.main.state.MainStateUI
 import com.org.test.randomusersapp.ui.screens.main.usecase.GetDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

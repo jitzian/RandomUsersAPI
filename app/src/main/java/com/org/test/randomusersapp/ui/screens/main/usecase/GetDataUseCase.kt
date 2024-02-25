@@ -4,7 +4,7 @@ import android.util.Log
 import com.org.test.randomusersapp.data.domain.repository.mappers.ResultToResultEntityDBMapper
 import com.org.test.randomusersapp.data.domain.repository.users.UsersRepository
 import com.org.test.randomusersapp.data.remote.model.Result
-import com.org.test.randomusersapp.ui.screens.main.MainStateUI
+import com.org.test.randomusersapp.ui.screens.main.state.MainStateUI
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

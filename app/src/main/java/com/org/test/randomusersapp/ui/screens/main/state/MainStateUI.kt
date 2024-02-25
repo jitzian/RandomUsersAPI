@@ -1,4 +1,4 @@
-package com.org.test.randomusersapp.ui.screens.main
+package com.org.test.randomusersapp.ui.screens.main.state
 
 import com.org.test.randomusersapp.data.db.entities.ResultEntityDB
 
