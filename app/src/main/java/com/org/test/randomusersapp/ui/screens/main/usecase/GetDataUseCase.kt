@@ -35,10 +35,11 @@ class GetDataUseCase @Inject constructor(
         val data = usersRepository.getUsers(page, results, seed)
         addResultRoom(data)
 
-        return scope.runCatching { usersRepository.getAllResultsRoom() }.fold(
-            onSuccess = { it.map { item -> MainStateUI.Success(item) } },
-            onFailure = { flowOf(MainStateUI.Error(it.message ?: "Error")) }
-        )
+        return scope.runCatching { usersRepository.getAllResultsRoom() }
+            .fold(
+                onSuccess = { it.map { item -> MainStateUI.Success(item) } },
+                onFailure = { flowOf(MainStateUI.Error(it.message ?: "Error")) }
+            )
     }
 
     private suspend fun addResultRoom(data: List<Result>) = data.forEach {
