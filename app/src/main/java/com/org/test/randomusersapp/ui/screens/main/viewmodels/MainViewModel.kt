@@ -15,7 +15,6 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val getDataUseCase: GetDataUseCase,
 ) : ViewModel() {
-    private val TAG = "MainViewModel"
     private val _state: MutableStateFlow<MainStateUI> = MutableStateFlow(MainStateUI.Empty)
     val state = _state.asStateFlow()
 
@@ -25,12 +24,6 @@ class MainViewModel @Inject constructor(
         seed: String,
     ) = viewModelScope.launch {
         getDataUseCase.prepareData(page, results, seed).collect { data ->
-            /*when (data) {
-                is MainStateUI.Loading -> _state.update { MainStateUI.Loading }
-                is MainStateUI.Success -> _state.update { MainStateUI.Success(data.data) }
-                is MainStateUI.Error -> _state.update { MainStateUI.Error(data.message) }
-                else -> _state.update { MainStateUI.Empty }
-            }*/
             _state.update { data }
         }
     }
