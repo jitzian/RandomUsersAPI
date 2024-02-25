@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "id")
+@Entity(tableName = "id_entity")
 data class IdEntityDB(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val name: String,
-    val value: String
+    val value: String? = "",
+    val name: String? = "",
 ) : Parcelable

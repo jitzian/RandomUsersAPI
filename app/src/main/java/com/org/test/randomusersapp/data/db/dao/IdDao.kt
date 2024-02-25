@@ -15,10 +15,10 @@ interface IdDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addId(id: IdEntityDB)
 
-    @Query("SELECT * FROM id WHERE id = :id")
+    @Query("SELECT * FROM id_entity WHERE value = :id")
     fun findIdById(id: Int): Flow<IdEntityDB>
 
-    @Query("SELECT * FROM id")
+    @Query("SELECT * FROM id_entity")
     fun getAllId(): Flow<List<IdEntityDB>>
 
     @Update
