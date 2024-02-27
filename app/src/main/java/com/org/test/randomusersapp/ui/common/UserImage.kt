@@ -15,12 +15,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberAsyncImagePainter
-import coil.compose.rememberImagePainter
 import com.org.test.randomusersapp.R
 import com.org.test.randomusersapp.ui.theme.RandomUsersAppTheme
 
 @Composable
-fun ProductImage(
+fun UserImage(
     url: String,
     name: String,
     modifier: Modifier = Modifier,
@@ -47,7 +46,7 @@ fun ProductImage(
 @Composable
 fun PevProductImage() =
     RandomUsersAppTheme {
-        ProductImage(
+        UserImage(
             url = "https://somethwre.com/image.jpg",
             name = "A name"
         )

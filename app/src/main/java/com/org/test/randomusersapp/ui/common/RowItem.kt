@@ -53,7 +53,7 @@ fun RowItem(
                 )
                 .clickable { onItemClick.invoke(data.id) }
         ) {
-            ProductImage(name = data.nameEntityDB.first, url = data.pictureEntityDB.large)
+            UserImage(name = data.nameEntityDB.first, url = data.pictureEntityDB.large)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
