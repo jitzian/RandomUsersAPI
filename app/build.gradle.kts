@@ -82,6 +82,8 @@ dependencies {
     // For local unit tests
     testImplementation("com.google.dagger:hilt-android-testing:2.50")
     kaptTest("com.google.dagger:hilt-compiler:2.50")
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 }
 
 kapt {
@@ -109,9 +111,21 @@ dependencies {
 
 //Room Db
 dependencies {
+    // Reference: https://dagger.dev/hilt/gradle-setup
     implementation("androidx.room:room-runtime:2.6.1")
-    kapt( "androidx.room:room-compiler:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
 
 // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:2.6.1")
+}
+
+//Kotlin Components and Kotlin Coroutines
+dependencies {
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+}
+
+//ConstraintLayout
+dependencies {
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 }
