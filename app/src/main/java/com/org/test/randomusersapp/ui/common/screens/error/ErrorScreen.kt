@@ -57,15 +57,16 @@ fun ErrorScreen(
                     vertical = 32.dp
                 )
         )
-
-        Text(
-            text = "Refresh?",
-            modifier = Modifier
-                .fillMaxWidth()
-                .clickable { onRetryAction?.invoke() },
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyMedium,
-        )
+        onRetryAction?.let {
+            Text(
+                text = "Refresh?",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { it.invoke() },
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        }
     }
 
 }
