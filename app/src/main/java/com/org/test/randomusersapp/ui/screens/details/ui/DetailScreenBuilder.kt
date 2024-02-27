@@ -44,7 +44,7 @@ fun DetailScreenBuilder(
                 top.linkTo(image.top)
                 start.linkTo(image.end, margin = 8.dp)
             },
-            style = MaterialTheme.typography.bodyLarge.copy(
+            style = MaterialTheme.typography.bodyMedium.copy(
                 fontWeight = FontWeight.Bold
             ),
         )
@@ -58,7 +58,7 @@ fun DetailScreenBuilder(
                 bottom.linkTo(label.bottom)
                 width = Dimension.fillToConstraints
             },
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyMedium
         )
 
         Text(
@@ -69,6 +69,7 @@ fun DetailScreenBuilder(
                 end.linkTo(name.end)
                 width = Dimension.fillToConstraints
             },
+            style = MaterialTheme.typography.bodySmall
         )
 
         Text(
@@ -79,6 +80,7 @@ fun DetailScreenBuilder(
                 end.linkTo(name.end)
                 width = Dimension.fillToConstraints
             },
+            style = MaterialTheme.typography.bodySmall
         )
     }
 }

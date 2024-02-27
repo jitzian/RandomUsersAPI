@@ -1,11 +1,6 @@
 package com.org.test.randomusersapp.ui.screens.main.ui
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -15,7 +10,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.org.test.randomusersapp.data.db.entities.ResultEntityDB
 import com.org.test.randomusersapp.ui.appscreen.UsersAppContent
 import com.org.test.randomusersapp.ui.common.MainTopBar
-import com.org.test.randomusersapp.ui.common.RowItem
 import com.org.test.randomusersapp.ui.common.screens.error.ErrorScreen
 import com.org.test.randomusersapp.ui.common.screens.loading.LoadingScreen
 import com.org.test.randomusersapp.ui.screens.main.state.MainStateUI
@@ -23,7 +17,6 @@ import com.org.test.randomusersapp.ui.screens.main.viewmodels.MainViewModel
 
 @Composable
 fun MainState(
-    //navigateToDetails: (Int) -> Unit,
     navigateToDetails: (String) -> Unit,
     mainViewModel: MainViewModel = hiltViewModel(),
 ) {
@@ -60,7 +53,6 @@ fun MainState(
 fun MainScreen(
     modifier: Modifier = Modifier,
     data: List<ResultEntityDB>,
-    //navigateToDetails: (Int) -> Unit,
     navigateToDetails: (String) -> Unit,
 ) {
     UsersAppContent {

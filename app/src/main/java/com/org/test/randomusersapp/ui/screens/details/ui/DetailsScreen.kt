@@ -6,8 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.org.test.randomusersapp.R
 import com.org.test.randomusersapp.data.db.entities.ResultEntityDB
 import com.org.test.randomusersapp.ui.appscreen.UsersAppContent
 import com.org.test.randomusersapp.ui.common.LoadingScreen
@@ -34,9 +36,6 @@ fun DetailsScreenState(
 
     when (state) {
         DetailsStateUI.Empty -> Unit
-        /*is DetailsStateUI.Error -> ErrorScreen(
-            message = (state as DetailsStateUI.Error).message,
-        )*/
         is DetailsStateUI.Error -> ErrorScreenBuilder(
             message = (state as DetailsStateUI.Error).message,
             onBackClick = onBackClick,
@@ -60,8 +59,8 @@ fun DetailsScreen(
         Scaffold(
             topBar = {
                 MainTopBar(
-                    barTitle = "Details",
                     showBackButton = true,
+                    barTitle = stringResource(id = R.string.details_TEXT),
                     onBackClick = onBackClick
                 )
             }) { innerPadding ->

@@ -17,7 +17,6 @@ import kotlin.time.Duration.Companion.seconds
 class MainViewModel @Inject constructor(
     private val getDataUseCase: GetDataUseCase,
 ) : ViewModel() {
-    //private val _state: MutableStateFlow<MainStateUI> = MutableStateFlow(MainStateUI.Empty)
     private val _state: MutableStateFlow<MainStateUI> = MutableStateFlow(MainStateUI.Loading)
     val state = _state.asStateFlow()
 
