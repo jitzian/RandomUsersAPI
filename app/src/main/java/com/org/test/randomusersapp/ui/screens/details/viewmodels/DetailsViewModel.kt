@@ -18,15 +18,12 @@ class DetailsViewModel @Inject constructor(
     private val getDetailDataUseCase: GetDetailDataUseCase,
 ) : ViewModel() {
 
-    private val _state: MutableStateFlow<DetailsStateUI> = MutableStateFlow(DetailsStateUI.Empty)
+    private val _state: MutableStateFlow<DetailsStateUI> = MutableStateFlow(DetailsStateUI.Loading)
     val state = _state.asStateFlow()
 
     fun getDetailData(id: String) = viewModelScope.launch {
         delay(1.seconds)
-        _state.update { DetailsStateUI.Loading }
-        getDetailDataUseCase.findResultByIdRoom(id).collect { data ->
-            _state.update { data }
-        }
+        _state.update { getDetailDataUseCase.findResultByValue(id) }
     }
 
 }
