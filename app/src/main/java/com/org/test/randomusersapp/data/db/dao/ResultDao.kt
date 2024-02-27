@@ -27,4 +27,6 @@ interface ResultDao {
     @Delete
     suspend fun deleteResult(result: ResultEntityDB)
 
+    @Query("SELECT * FROM result WHERE idEntityDB = :value")
+    suspend fun findResultByValue(value: String): ResultEntityDB
 }
