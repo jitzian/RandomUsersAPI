@@ -31,4 +31,6 @@ interface UsersRepository {
 
     suspend fun deleteResultRoom(result: ResultEntityDB)
 
+    suspend fun findResultByValue(value: String): ResultEntityDB
+
 }

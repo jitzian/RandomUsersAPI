@@ -6,6 +6,7 @@ import com.org.test.randomusersapp.data.db.dao.ResultDao
 import com.org.test.randomusersapp.data.db.entities.ResultEntityDB
 import com.org.test.randomusersapp.data.domain.repository.users.UsersRepository
 import com.org.test.randomusersapp.data.remote.RestApi
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class UsersRepositoryImpl @Inject constructor(
@@ -37,4 +38,6 @@ class UsersRepositoryImpl @Inject constructor(
     override suspend fun updateResultRoom(result: ResultEntityDB) = resultDao.updateResult(result)
 
     override suspend fun deleteResultRoom(result: ResultEntityDB) = resultDao.deleteResult(result)
+    override suspend fun findResultByValue(value: String): ResultEntityDB =
+        resultDao.findResultByValue(value)
 }
