@@ -57,59 +57,46 @@ kapt {
 
 dependencies {
 
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+
+    androidTestImplementation(libs.androidxComposeUiTestJunit4)
+    androidTestImplementation(libs.androidxTestEspresso)
+    androidTestImplementation(libs.androidxTestExt)
+    androidTestImplementation(libs.daggerHiltAndroidTesting)
+    androidTestImplementation(libs.hilt.android.testing)
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    api(libs.jetbrains.kotlinx.coroutines.android)
+    api(libs.kotlinxCoroutines)
+    debugImplementation(libs.androidxComposeUiTestManifest)
+    debugImplementation(libs.androidxComposeUiTooling)
+    implementation(libs.androidxActivity)
     implementation(libs.androidxCore)
     implementation(libs.androidxLifecycle)
-    implementation(libs.androidxActivity)
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidxTestExt)
-    androidTestImplementation(libs.androidxTestEspresso)
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    implementation(libs.daggerHilt)
-    kapt(libs.hilt.compiler)
-
-    // For instrumentation tests
-    androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.compiler)
-
-    // For local unit tests
-    testImplementation(libs.hilt.android.testing)
-    kaptTest(libs.hilt.compiler)
-
-    implementation(libs.hiltNavigationCompose)
-
-    //okhttp
-    implementation(libs.okhttp)
-
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
-    implementation(libs.retrofit2.converter.gson)
-    implementation(libs.logging.interceptor)
-
-    //Images Compose
     implementation(libs.coilCompose)
-
+    implementation(libs.constraintlayoutCompose)
+    implementation(libs.daggerHilt)
+    implementation(libs.hiltNavigationCompose)
+    implementation(libs.logging.interceptor)
+    implementation(libs.material3)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp)
+    implementation(libs.okhttpLoggingInterceptor)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.retrofitConverterGson)
+    implementation(libs.room.ktx)
+    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    kapt(libs.daggerHiltCompiler)
+    kapt(libs.hilt.compiler)
+    kaptAndroidTest(libs.daggerHiltCompiler)
+    kaptAndroidTest(libs.hilt.compiler)
+    kaptTest(libs.daggerHiltCompiler)
+    kaptTest(libs.hilt.compiler)
+    testImplementation(libs.daggerHiltAndroidTesting)
+    testImplementation(libs.hilt.android.testing)
+    testImplementation(libs.junit)
     //Room Db
     // Reference: https://dagger.dev/hilt/gradle-setup
     implementation(libs.room)
     kapt(libs.androidx.room.compiler)
 
-    // optional - Kotlin Extensions and Coroutines support for Room
-    implementation(libs.room.ktx)
-
-    //Kotlin Components and Kotlin Coroutines
-    api(libs.kotlinxCoroutines)
-    api(libs.jetbrains.kotlinx.coroutines.android)
-
-    //ConstraintLayout
-    implementation(libs.constraintlayoutCompose)
 }
