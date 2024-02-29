@@ -34,18 +34,11 @@ class GetDataUseCase @Inject constructor(
                 .fold(
                     onSuccess = { data ->
                         addResultRoom(data.results)
-                        /*emit(
-                            MainStateUI.Success(
-                                data.results.map { resultToResultEntityDBMapper.invoke(it) }
-                            )
-                        )*/
-
                         usersRepository.getAllResultsRoom().collect {
                             emit(MainStateUI.Success(it))
                         }
                     },
                     onFailure = { e ->
-                        //emit(MainStateUI.Error(e.message ?: "Unknown error"))
                         usersRepository.getAllResultsRoom().collect {
                             if (it.isNotEmpty()) {
                                 emit(MainStateUI.Success(it))
