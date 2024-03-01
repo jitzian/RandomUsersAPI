@@ -21,8 +21,10 @@ fun MainState(
     mainViewModel: MainViewModel = hiltViewModel(),
 ) {
     val state by mainViewModel.state.collectAsState()
+    val page by mainViewModel.page.collectAsState()
+
     //TODO: Change this..!!
-    mainViewModel.getUsersData(1, 10, "abc")
+    //mainViewModel.getUsersData(1, 10, "abc")
 
     when (state) {
         is MainStateUI.Empty -> Unit
@@ -31,6 +33,8 @@ fun MainState(
             MainScreen(
                 data = (state as MainStateUI.Success).data,
                 navigateToDetails = navigateToDetails,
+                onFetchMore = { mainViewModel.getUsersData(page, 10, "abc") },
+                isLoading = (state as MainStateUI.Success).isLoading
             )
         }
 
@@ -42,7 +46,8 @@ fun MainState(
                 1. Implement More button
                 2. Move page into the state and increment it when more is pressed
                  */
-                onRetryAction = { mainViewModel.getUsersData(1, 10, "abc") }
+                //onRetryAction = { mainViewModel.getUsersData(1, 10, "abc") }
+                onRetryAction = { mainViewModel.getUsersData(page, 10, "abc") }
             )
         }
     }
@@ -54,13 +59,17 @@ fun MainScreen(
     modifier: Modifier = Modifier,
     data: List<ResultEntityDB>,
     navigateToDetails: (String) -> Unit,
+    onFetchMore: (() -> Unit)? = null,
+    isLoading: Boolean = false,
 ) {
     UsersAppContent {
         Scaffold(topBar = { MainTopBar(barTitle = "Random Users App") }) {
             MainScreenBuilder(
                 data = data,
                 navigateToDetails = navigateToDetails,
-                modifier = modifier.padding(it)
+                modifier = modifier.padding(it),
+                onFetchMore = onFetchMore,
+                isLoading = isLoading
             )
         }
     }
