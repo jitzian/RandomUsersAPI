@@ -49,13 +49,12 @@ fun LoadMore(
         Text(
             text = "More...",
             modifier = modifier
-                //.fillMaxWidth()
                 .padding(horizontal = 8.dp)
                 .clickable { onFetchMore() },
             textAlign = TextAlign.Center,
 
-        )
-        if(isLoading) {
+            )
+        if (isLoading) {
             CircularProgressIndicator(
                 progress = progressAnimationValue,
                 modifier = Modifier
@@ -73,7 +72,9 @@ fun PrevLoadMore() = RandomUsersAppTheme {
     LoadMore(
         onFetchMore = { }
     )
-}@Preview(showBackground = true)
+}
+
+@Preview(showBackground = true)
 @Composable
 fun PrevLoadMoreShowLoading() = RandomUsersAppTheme {
     LoadMore(

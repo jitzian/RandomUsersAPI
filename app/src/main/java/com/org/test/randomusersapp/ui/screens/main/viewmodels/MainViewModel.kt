@@ -31,16 +31,17 @@ class MainViewModel @Inject constructor(
         seed: String,
     ) = viewModelScope.launch {
 
-        //_state.update { (it as? MainStateUI.Loading)?.copy(isLoading = true) ?: it }
-        when(state.value) {
+        when (state.value) {
             is MainStateUI.Success -> {
                 val data = (state.value as MainStateUI.Success).data
                 _state.update { MainStateUI.Success(data, true) }
             }
+
             is MainStateUI.Error -> {
                 val message = (state.value as MainStateUI.Error).message
                 _state.update { MainStateUI.Error(message, false) }
             }
+
             else -> Unit
         }
         delay(2.seconds)

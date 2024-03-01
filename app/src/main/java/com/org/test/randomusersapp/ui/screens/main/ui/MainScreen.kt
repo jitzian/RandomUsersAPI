@@ -23,9 +23,6 @@ fun MainState(
     val state by mainViewModel.state.collectAsState()
     val page by mainViewModel.page.collectAsState()
 
-    //TODO: Change this..!!
-    //mainViewModel.getUsersData(1, 10, "abc")
-
     when (state) {
         is MainStateUI.Empty -> Unit
         is MainStateUI.Loading -> LoadingScreen()
@@ -41,12 +38,6 @@ fun MainState(
         is MainStateUI.Error -> {
             ErrorScreen(
                 message = (state as MainStateUI.Error).message,
-                /**
-                 * TODO:
-                1. Implement More button
-                2. Move page into the state and increment it when more is pressed
-                 */
-                //onRetryAction = { mainViewModel.getUsersData(1, 10, "abc") }
                 onRetryAction = { mainViewModel.getUsersData(page, 10, "abc") }
             )
         }
